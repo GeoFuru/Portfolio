@@ -44,6 +44,8 @@ function ProjectPage({ projectId }: ProjectPageProps) {
     );
   }
 
+  
+
   return (
     <div className="app">
       <Navbar />
@@ -92,6 +94,46 @@ function ProjectPage({ projectId }: ProjectPageProps) {
               ))}
             </div>
           </section>
+
+          {(project.github || project.liveDemo) && (
+            <div className="project-links">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  GitHub
+                </a>
+              )}
+
+              {project.liveDemo && (
+                <a
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link"
+                >
+                  Live Demo ↗
+                </a>
+              )}
+            </div>
+          )}
+
+          {project.liveDemo && (
+            <section className="project-detail-section">
+              <h2>Live Demo</h2>
+
+              <div className="project-live-demo">
+                <iframe
+                  src={project.liveDemo}
+                  title={project.title[language]}
+                  loading="lazy"
+                />
+              </div>
+            </section>
+          )}
 
           {(project.location || project.coordinates) && (
             <section className="project-detail-section">

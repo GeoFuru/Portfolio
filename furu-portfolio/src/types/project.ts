@@ -56,4 +56,5 @@ export interface Project {
   image?: string;
   video?: string;
   github?: string;
+  liveDemo?: string;
 }

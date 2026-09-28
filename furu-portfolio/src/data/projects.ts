@@ -2,6 +2,9 @@ import type { Project } from "../types/project";
 
 export const projects: Project[] = [
   {
+
+    // Orbis spatial
+
     id: "orbis-spatial",
 
     title: {
@@ -132,6 +135,8 @@ export const projects: Project[] = [
     featured: true,
   },
 
+  //volcanic-exposure-gis
+
   {
     id: "volcanic-monitoring",
 
@@ -183,4 +188,112 @@ export const projects: Project[] = [
 
     coordinates: [-71.93937, -39.42085], // longitude, latitude — WGS 84 (EPSG:4326), decimal degrees.
   },
+
+  // Viña del mar
+
+  {
+    id: "terrain-data-assessment",
+
+    title: {
+      en: "Terrain Data Assessment",
+      es: "Evaluación de Datos para Modelamiento del Terreno",
+    },
+
+    description: {
+      en: "Technical assessment of geospatial datasets for terrain modelling, focusing on data sources, spatial reference systems, resolution, scale, raster and vector structures, topographic characteristics, and data limitations.",
+      es: "Evaluación técnica de datos geoespaciales destinados al modelamiento del terreno, considerando fuentes de datos, sistemas de referencia, resolución, escala, estructuras ráster y vectoriales, características topográficas y limitaciones de la información.",
+    },
+
+    year: 2026,
+
+    status: "ongoing",
+
+    image: "/images/projects/terrain-data-assessment/main.jpg",
+
+    technologies: [
+      "GIS",
+      "QGIS",
+      "Raster Analysis",
+      "Vector Analysis",
+    ],
+
+    domains: [
+      {
+        en: "GIS",
+        es: "GIS",
+      },
+      {
+        en: "Data Quality",
+        es: "Calidad de Datos",
+      },
+      {
+        en: "Terrain Analysis",
+        es: "Análisis del Terreno",
+      },
+    ],
+
+    featured: false,
+
+    location: {
+      en: "Viña del Mar, Chile",
+      es: "Viña del Mar, Chile",
+    },
+
+    coordinates: [-71.55, -33.02], // approximate project area — WGS 84 (EPSG:4326), decimal degrees.
+  },
+
+  //GNSS-Reference-Station-Viewer
+
+  {
+    id: "gnss-reference-station-viewer",
+
+    title: {
+      en: "GNSS Reference Station Viewer",
+      es: "Visor de Estaciones GNSS de Referencia",
+    },
+
+    description: {
+      en: "Interactive web GIS for exploring GNSS reference stations in Chile, with spatial filtering, distance analysis, measurement tools, coverage visualization, and coordinate data export.",
+      es: "Web GIS interactivo para explorar estaciones GNSS de referencia en Chile, con filtrado espacial, análisis de distancias, herramientas de medición, visualización de cobertura y exportación de datos de coordenadas.",
+    },
+
+    year: 2026,
+
+    status: "completed",
+
+    image: "/images/projects/gnss-reference-station-viewer/main.jpg",
+
+    technologies: [
+      "JavaScript",
+      "Leaflet",
+      "OpenStreetMap",
+      "GNSS / NTRIP",
+      "UTM",
+    ],
+
+    domains: [
+      {
+        en: "Web GIS",
+        es: "Web GIS",
+      },
+      {
+        en: "GNSS",
+        es: "GNSS",
+      },
+      {
+        en: "Spatial Analysis",
+        es: "Análisis Espacial",
+      },
+    ],
+
+    featured: false,
+
+    github: "https://github.com/Geofuru/GNSS-Reference-Station-Viewer",
+
+    liveDemo:
+      "https://geofuru.github.io/GNSS-Reference-Station-Viewer/",
+  },
 ];
+
+
+
