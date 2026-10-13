@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
+import { getBasemap } from "../utils/basemap";
+
 interface ProjectMapProps {
   coordinates: [number, number];
   title: string;
@@ -31,13 +33,17 @@ function ProjectMap({
       11,
     );
 
-    L.tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      },
-    ).addTo(map);
+    const basemap = getBasemap();
+
+    L.tileLayer(basemap.url, {
+      attribution: basemap.attribution,
+    }).addTo(map);
+
+    if (basemap.overlayUrl) {
+      L.tileLayer(basemap.overlayUrl, {
+        attribution: basemap.attribution,
+      }).addTo(map);
+    }
 
     L.circleMarker(position, {
       radius: 8,

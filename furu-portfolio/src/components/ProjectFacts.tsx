@@ -1,5 +1,5 @@
 import type { Project } from "../types/project";
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLanguage } from "../i18n/useLanguage";
 
 interface ProjectFactsProps {
   project: Project;

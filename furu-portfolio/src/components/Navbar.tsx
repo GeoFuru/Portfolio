@@ -1,17 +1,19 @@
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLanguage } from "../i18n/useLanguage";
+import { withBase } from "../utils/paths";
 
 function Navbar() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
     <header className="navbar">
-      <a href="/" className="logo">
-        FURU
+      <a href={withBase("/")} className="logo">
+        GeoFuru
       </a>
 
       <nav className="nav-links">
-        <a href="/projects">{t.nav.projects}</a>
-        <a href="#about">{t.nav.about}</a>
+        <a href={withBase("/projects")}>{t.nav.projects}</a>
+        <a href={withBase("/gallery")}>{t.nav.gallery}</a>
+        <a href={withBase("/about")}>{t.nav.about}</a>
 
         <button
           type="button"
@@ -19,7 +21,7 @@ function Navbar() {
           onClick={() =>
             setLanguage(language === "en" ? "es" : "en")
           }
-          aria-label="Change language"
+          aria-label={t.language.switchLanguage}
         >
           {language === "en" ? "ES" : "EN"}
         </button>

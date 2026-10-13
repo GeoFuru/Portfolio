@@ -2,8 +2,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-import { projects } from "../data/projects";
-import { useLanguage } from "../i18n/LanguageContext";
+import { publicProjects } from "../utils/projects";
+import { useLanguage } from "../i18n/useLanguage";
+import { withBase } from "../utils/paths";
+import { getBasemap } from "../utils/basemap";
 
 function HomeMap() {
   const { language } = useLanguage();
@@ -15,7 +17,7 @@ function HomeMap() {
     }
 
     const projectsWithCoordinates =
-      projects.filter(
+      publicProjects.filter(
         (project) => project.coordinates,
       );
 
@@ -23,30 +25,41 @@ function HomeMap() {
       return;
     }
 
-    const firstProject =
-      projectsWithCoordinates[0];
+    const map = L.map(mapRef.current);
 
-    if (!firstProject.coordinates) {
-      return;
+    const basemap = getBasemap();
+
+    L.tileLayer(basemap.url, {
+      attribution: basemap.attribution,
+    }).addTo(map);
+
+    if (basemap.overlayUrl) {
+      L.tileLayer(basemap.overlayUrl, {
+        attribution: basemap.attribution,
+      }).addTo(map);
     }
 
-    const [
-      firstLongitude,
-      firstLatitude,
-    ] = firstProject.coordinates;
+    // Frame every project: fitBounds always shows all of
+    // them, and maxZoom keeps a single project (or very
+    // close ones) from zooming in too far.
+    const bounds = L.latLngBounds(
+      projectsWithCoordinates.map(
+        (project) => {
+          const [longitude, latitude] =
+            project.coordinates!;
 
-    const map = L.map(mapRef.current).setView(
-      [firstLatitude, firstLongitude],
-      10,
+          return [latitude, longitude] as [
+            number,
+            number,
+          ];
+        },
+      ),
     );
 
-    L.tileLayer(
-      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      },
-    ).addTo(map);
+    map.fitBounds(bounds, {
+      padding: [70, 100],
+      maxZoom: 10,
+    });
 
     projectsWithCoordinates.forEach(
       (project) => {
@@ -70,7 +83,7 @@ function HomeMap() {
         const image = project.image
           ? `
               <img
-                src="${project.image}"
+                src="${withBase(project.image)}"
                 alt="${project.title[language]}"
                 class="home-map-tooltip-image"
               />
@@ -94,16 +107,19 @@ function HomeMap() {
         marker.bindTooltip(
           tooltipContent,
           {
-            sticky: true,
-            direction: "top",
+            // "auto" places the tooltip on the side
+            // with more room, so it never gets cut
+            // off by the edge of the map.
+            direction: "auto",
             className:
               "home-map-tooltip-container",
           },
         );
 
         marker.on("click", () => {
-          window.location.href =
-            `/projects/${project.id}`;
+          window.location.href = withBase(
+            `/projects/${project.id}`,
+          );
         });
       },
     );

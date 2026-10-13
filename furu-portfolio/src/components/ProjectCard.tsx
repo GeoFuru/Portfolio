@@ -1,6 +1,7 @@
 import type { Project } from "../types/project";
 import TechnologyTag from "./TechnologyTag";
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLanguage } from "../i18n/useLanguage";
+import { withBase } from "../utils/paths";
 
 interface ProjectCardProps {
   project: Project;
@@ -8,26 +9,49 @@ interface ProjectCardProps {
 
 function ProjectCard({ project }: ProjectCardProps) {
   const { language, t } = useLanguage();
+  const videoPreview = project.media?.find((item) => item.type === "video");
 
   return (
     <a
-      href={`/projects/${project.id}`}
+      href={withBase(`/projects/${project.id}`)}
       className="project-card"
     >
-      {project.image && (
+      {videoPreview ? (
+        <div className="project-card-image">
+          <video
+            src={withBase(videoPreview.src)}
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+          />
+        </div>
+      ) : project.image ? (
         <div className="project-card-image">
           <img
-            src={project.image}
+            src={withBase(project.image)}
             alt={project.title[language]}
           />
         </div>
-      )}
+      ) : null}
 
       <div className="project-card-content">
         <div className="project-header">
-          <span className="project-status">
-            {t.status[project.status].toUpperCase()}
-          </span>
+          <div className="project-header-tags">
+            <span className="project-status">
+              {t.status[project.status].toUpperCase()}
+            </span>
+
+            {project.roles.map((role) => (
+              <span
+                key={role}
+                className="project-role"
+              >
+                {t.roles[role]}
+              </span>
+            ))}
+          </div>
 
           <div className="project-meta">
             <span>{project.year}</span>

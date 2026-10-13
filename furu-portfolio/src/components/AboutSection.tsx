@@ -1,4 +1,5 @@
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLanguage } from "../i18n/useLanguage";
+import { withBase } from "../utils/paths";
 
 function AboutSection() {
   const { t } = useLanguage();
@@ -10,6 +11,10 @@ function AboutSection() {
       <h2>{t.about.title}</h2>
 
       <p>{t.about.description}</p>
+
+      <a href={withBase("/about")} className="about-more-link">
+        {t.about.moreLink}
+      </a>
     </section>
   );
 }

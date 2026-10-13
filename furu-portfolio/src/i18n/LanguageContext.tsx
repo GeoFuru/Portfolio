@@ -1,6 +1,4 @@
 import {
-  createContext,
-  useContext,
   useEffect,
   useState,
   type ReactNode,
@@ -10,15 +8,7 @@ import {
   translations,
   type Language,
 } from "./translations";
-
-interface LanguageContextValue {
-  language: Language;
-  setLanguage: (language: Language) => void;
-  t: (typeof translations)[Language];
-}
-
-const LanguageContext =
-  createContext<LanguageContextValue | null>(null);
+import { LanguageContext } from "./useLanguage";
 
 interface LanguageProviderProps {
   children: ReactNode;
@@ -55,16 +45,4 @@ export function LanguageProvider({
       {children}
     </LanguageContext.Provider>
   );
-}
-
-export function useLanguage() {
-  const context = useContext(LanguageContext);
-
-  if (!context) {
-    throw new Error(
-      "useLanguage must be used inside LanguageProvider",
-    );
-  }
-
-  return context;
 }

@@ -3,99 +3,34 @@ import Hero from "../components/Hero";
 import ProjectList from "../components/ProjectList";
 import AboutSection from "../components/AboutSection";
 import Footer from "../components/Footer";
-import HomeMap from "../components/HomeMap";
 
-import { projects } from "../data/projects";
-import { useLanguage } from "../i18n/LanguageContext";
+import { publicProjects } from "../utils/projects";
+import { useLanguage } from "../i18n/useLanguage";
+
+const focusedProjects = publicProjects.filter((project) => project.featured);
 
 function Home() {
-  const { language, t } = useLanguage();
-
-  const galleryItems = projects.flatMap(
-    (project) =>
-      project.media
-        ?.filter(
-          (media) => media.type === "image",
-        )
-        .map((media) => ({
-          ...media,
-          projectId: project.id,
-          projectTitle:
-            project.title[language],
-        })) ?? [],
-  );
+  const { t } = useLanguage();
 
   return (
-    <div className="app">
+    <div className="app home-page">
       <Navbar />
 
       <main>
         <section className="home-hero">
           <Hero />
-
-          <HomeMap />
         </section>
 
-        <section className="home-gallery">
+        <section id="work" className="work-section">
           <div className="section-heading">
-            <p className="eyebrow">
-              {t.home.galleryEyebrow}
-            </p>
-
-            <h2>
-              {t.home.galleryTitle}
-            </h2>
-          </div>
-
-          <div className="gallery-track">
-            {galleryItems.map((item) => (
-              <a
-                key={`${item.src}-${item.projectTitle}`}
-                href={`/projects/${item.projectId}`}
-                className="gallery-item"
-              >
-                <img
-                  src={item.src}
-                  alt={
-                    item.title?.[language] ??
-                    item.projectTitle
-                  }
-                />
-
-                <div className="gallery-item-caption">
-                  <strong>
-                    {item.title?.[language] ??
-                      item.projectTitle}
-                  </strong>
-
-                  <span>
-                    {item.projectTitle}
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section
-          id="work"
-          className="work-section"
-        >
-          <div className="section-heading">
-            <p className="eyebrow">
-              {t.home.selectedWork}
-            </p>
-
+            <p className="eyebrow">{t.home.selectedWork}</p>
             <h2>{t.home.title}</h2>
-
-            <p>
-              {t.home.description}
-            </p>
+            <p>{t.home.description}</p>
           </div>
 
           <ProjectList
-            projects={projects}
-            featuredOnly
+            projects={focusedProjects}
+            layout="expand"
           />
         </section>
 
