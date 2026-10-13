@@ -8,6 +8,9 @@
 **/.cache/
 **/coverage/
 
+# Keep the local application source out of the hosting repository
+/furu-portfolio/
+
 # Local environment and secrets
 **/.env
 **/.env.*
