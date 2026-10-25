@@ -1,0 +1,79 @@
+:root {
+  /* =========================
+     COLORS — Neo-Terminal
+     ========================= */
+
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-surface-hover: #111111;
+
+  --color-text: #F0EDF3;
+  --color-text-secondary: #B9B2C2;
+  --color-text-muted: #938B9E;
+
+  --color-border: #1a1a1a;
+
+  --color-primary: #ff2d95;
+  --color-primary-hover: #ff5cae;
+  --color-primary-soft: #1a0a12;
+  --color-primary-glow: rgba(255, 45, 149, 0.06);
+  --color-primary-glow-strong: rgba(255, 45, 149, 0.12);
+
+  --color-secondary: #7b61ff;
+  --color-secondary-soft: #120a1a;
+
+  --color-success: #00d97e;
+  --color-warning: #f5c76b;
+  --color-error: #ff6b7a;
+
+  /* CRT scanline overlay */
+  --crt-overlay: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.025) 2px,
+    rgba(0, 0, 0, 0.025) 4px
+  );
+
+  /* =========================
+     TYPOGRAPHY
+     ========================= */
+
+  --font-display: "Oxanium", sans-serif;
+  --font-mono: "Iosevka", "JetBrains Mono", monospace;
+  --font-accent: "Silkscreen", monospace;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+
+  /* Fluid type scale — base sizes */
+  --text-xs: clamp(0.65rem, 0.6rem + 0.25vw, 0.75rem);      /* ~10-12px: nav, labels, chips */
+  --text-sm: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);     /* ~12-14px: metadata, tags, buttons */
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);       /* ~16-18px: body paragraphs */
+  --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.25rem);        /* ~18-20px: card descriptions */
+  --text-xl: clamp(1.5rem, 1.3rem + 1vw, 2rem);             /* ~24-32px: card titles, section headings */
+  --text-2xl: clamp(2.25rem, 1.8rem + 2.2vw, 3.5rem);       /* ~36-56px: hero title, page titles */
+  --text-3xl: clamp(3rem, 2.2rem + 4vw, 5rem);              /* ~48-80px: large display */
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* =========================
+     LAYOUT — Angular / Sharp
+     ========================= */
+
+  --content-width: 1100px;
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+
+  /* =========================
+     EFFECTS
+     ========================= */
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 16px rgba(255, 45, 149, 0.08);
+
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+}
