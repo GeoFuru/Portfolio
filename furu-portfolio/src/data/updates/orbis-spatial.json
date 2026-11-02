@@ -1,0 +1,766 @@
+[
+  {
+    "id": "orbis-2026-10-27-30",
+    "date": "2026-10-27",
+    "type": "plan",
+    "scope": "geodesy",
+    "title": {
+      "es": "Stage 4.3 — Expediente de referencia de estaciones",
+      "en": "Stage 4.3 — Station reference dossier"
+    },
+    "details": {
+      "es": [
+        "Se plantea un dossier de solo lectura con procedencia RINEX/SP3, coordenadas originales y de trabajo, y hashes de evidencias.",
+        "El archivo fuente contiene el plan de esta etapa, no su cierre ni una validación de implementación."
+      ],
+      "en": [
+        "A read-only dossier is proposed with RINEX/SP3 provenance, original and working coordinates, and evidence hashes.",
+        "The source contains the plan for this stage, rather than its completion or implementation validation."
+      ]
+    },
+    "sources": [
+      "Investigación: 118"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-27-29",
+    "date": "2026-10-27",
+    "type": "feat",
+    "scope": "geodesy",
+    "title": {
+      "es": "Stage 4.2 — Catálogo de realizaciones y validación temporal",
+      "en": "Stage 4.2 — Realization catalog and temporal validation"
+    },
+    "details": {
+      "es": [
+        "Separación de época de solución y época de coordenadas para referencias IGS20/IGb20/IGc20 y SIRGAS-Chile.",
+        "Tratamiento explícito de sistemas de tiempo desconocidos y control de vigencia de resultados antiguos.",
+        "Se mantienen las capacidades matemáticas Helmert 7/14 fuera del flujo operativo mientras no exista catálogo validado.",
+        "Compilación Release y validación final documentadas; la primera corrida tuvo un fallo de prueba de historial y se revisó posteriormente."
+      ],
+      "en": [
+        "Separation of solution epoch and coordinate epoch for IGS20/IGb20/IGc20 and SIRGAS-Chile references.",
+        "Explicit handling of unknown time systems and checks on the validity of older results.",
+        "Helmert 7/14 mathematical capabilities remain outside the operational workflow until a validated catalog exists.",
+        "Release build and final validation documented; the first run had a history test failure that was subsequently reviewed."
+      ]
+    },
+    "sources": [
+      "Investigación: 111–117"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-27-28",
+    "date": "2026-10-27",
+    "type": "feat",
+    "scope": "ui",
+    "title": {
+      "es": "Stage 4.1.1 — Configuración clara de época y referencia",
+      "en": "Stage 4.1.1 — Clear epoch and reference configuration"
+    },
+    "details": {
+      "es": [
+        "Editor de época decimal explícita o Unknown con validación inmediata.",
+        "Panel de configuración geodésica reorganizado y edición real de proyecto/estaciones.",
+        "Pruebas de persistencia .orbs v8; 89 aprobadas, 2 omitidas y 0 fallidas sobre 91 registradas."
+      ],
+      "en": [
+        "Explicit decimal epoch or Unknown editor with immediate validation.",
+        "Reorganized geodetic settings panel with actual project/station editing.",
+        ".orbs v8 persistence tests: 89 passed, 2 skipped, and 0 failed out of 91 registered."
+      ]
+    },
+    "sources": [
+      "Investigación: 107–110"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-26-27",
+    "date": "2026-10-26",
+    "type": "feat",
+    "scope": "geodesy",
+    "title": {
+      "es": "Stage 4.1 — Integridad geodésica y formato .orbs v8",
+      "en": "Stage 4.1 — Geodetic integrity and .orbs v8 format"
+    },
+    "details": {
+      "es": [
+        "Validaciones explícitas de representación ECEF, metadatos, épocas y compatibilidad de referencia.",
+        "Controles estrictos de cabeceras y tiempo de RINEX/SP3 antes de procesar; fronteras seguras entre GNSS y ajuste.",
+        "Migración a .orbs v8 y pruebas de integridad; 87 aprobadas, 2 omitidas y 0 fallidas sobre 89 registradas."
+      ],
+      "en": [
+        "Explicit validation of ECEF representation, metadata, epochs, and reference compatibility.",
+        "Strict RINEX/SP3 header and time checks before processing; safe boundaries between GNSS and adjustment.",
+        "Migration to .orbs v8 and integrity tests: 87 passed, 2 skipped, and 0 failed out of 89 registered."
+      ]
+    },
+    "sources": [
+      "Investigación: 104–106"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-26-26",
+    "date": "2026-10-26",
+    "type": "research",
+    "scope": "geodesy",
+    "title": {
+      "es": "Auditoría de referencias geodésicas y límites operativos",
+      "en": "Geodetic reference audit and operational limits"
+    },
+    "details": {
+      "es": [
+        "Revisión del recorrido de marcos, épocas y coordenadas entre UI, .orbs, RINEX, GNSS, ajuste y reportes.",
+        "Se documenta la diferencia entre disponer de motores matemáticos y tener transformaciones operativas verificadas.",
+        "Informe de auditoría con brechas y prioridades para validación estricta."
+      ],
+      "en": [
+        "Review of frames, epochs, and coordinates across UI, .orbs, RINEX, GNSS, adjustment, and reports.",
+        "Documents the difference between having mathematical engines and verified operational transformations.",
+        "Evidence-based audit report with gaps and priorities for strict validation."
+      ]
+    },
+    "sources": [
+      "Investigación: 101–103"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-25",
+    "date": "2026-10-25",
+    "type": "feat",
+    "scope": "ui",
+    "title": {
+      "es": "Selector completo de antenas desde la interfaz",
+      "en": "Complete antenna selector in the interface"
+    },
+    "details": {
+      "es": [
+        "Navegador reutilizado como selector con búsqueda por fabricante, modelo, radomo e identificador.",
+        "Configuración manual desplazada al panel Advanced y persistencia de la identidad seleccionada.",
+        "Validación con catálogo combinado de 1.168 identidades, selección real y reapertura de proyecto."
+      ],
+      "en": [
+        "Browser reused as a selector with searches by manufacturer, model, radome, and identifier.",
+        "Manual configuration moved to Advanced; selected identity persisted.",
+        "Validation using a combined catalog of 1,168 identities, actual selection, and project reopening."
+      ]
+    },
+    "sources": [
+      "Investigación: 95–100"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-24",
+    "date": "2026-10-25",
+    "type": "feat",
+    "scope": "stations",
+    "title": {
+      "es": "Editor unificado de estaciones y proyecto portable",
+      "en": "Unified station editor and portable projects"
+    },
+    "details": {
+      "es": [
+        "Editor de General, Coordinates, Observations, Antenna y Processing History, con opciones Advanced plegables.",
+        "Edición de nombres y ocupaciones sin eliminar archivos físicos; manifiestos con hashes y formato .orbs v7.",
+        "Guardado referenciado/portable con RINEX, SP3 y ERP; reapertura probada sin los originales.",
+        "Validación nativa y 86/86 pruebas reportadas."
+      ],
+      "en": [
+        "General, Coordinates, Observations, Antenna, and Processing History editor with collapsible Advanced options.",
+        "Name and occupation editing without deleting physical files; hashed manifests and .orbs v7.",
+        "Referenced/portable saving with RINEX, SP3, and ERP; reopening tested without the originals.",
+        "Native validation and 86/86 tests reported."
+      ]
+    },
+    "sources": [
+      "Investigación: 81–94"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-23",
+    "date": "2026-10-25",
+    "type": "feat",
+    "scope": "antennas",
+    "title": {
+      "es": "Catálogo ANTEX IGS20/NGS20 y geometría de antenas",
+      "en": "IGS20/NGS20 ANTEX catalog and antenna geometry"
+    },
+    "details": {
+      "es": [
+        "Soporte ANTEX y catálogo integrado IGS20 con NGS20 opcional; identidad modelo/radomo y procedencia conservadas.",
+        "Consolidación de 1.168 identidades sin duplicación, con búsqueda, alias y pruebas de calibraciones.",
+        "Se prepara geometría de antena y referencias físicas; no se afirma aplicación completa de PCO/PCV al solver.",
+        "Guardado atómico y 83/83 pruebas reportadas."
+      ],
+      "en": [
+        "ANTEX support and integrated IGS20 catalog with optional NGS20; model/radome identity and provenance retained.",
+        "Consolidation of 1,168 identities without duplication, including search, aliases, and calibration tests.",
+        "Antenna geometry and physical references prepared; full PCO/PCV application in the solver is not claimed.",
+        "Atomic saving and 83/83 tests reported."
+      ]
+    },
+    "sources": [
+      "Investigación: 69–80"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-22",
+    "date": "2026-10-25",
+    "type": "feat",
+    "scope": "processing",
+    "title": {
+      "es": "Snapshots, vigencia de resultados y cancelación segura",
+      "en": "Snapshots, result validity, and safe cancellation"
+    },
+    "details": {
+      "es": [
+        "Nueva capa de aplicación con huella SHA-256 de entradas; resultados desactualizados o cancelados se mantienen solo en historial.",
+        "IDs estables para recursos/ocupaciones RINEX y UUID persistente de proyecto; formato .orbs v5.",
+        "Validación de GPS, solapamiento y archivos originales; limpieza de lectores y cancelación cooperativa.",
+        "Diálogo de historial, referencia vertical persistida y 78/78 pruebas reportadas."
+      ],
+      "en": [
+        "New application layer with SHA-256 input fingerprints; outdated or canceled results kept only in history.",
+        "Stable RINEX resource/occupation IDs and persistent project UUID; .orbs v5.",
+        "GPS, overlap, and original-file validation; reader cleanup and cooperative cancellation.",
+        "History dialog, persisted vertical reference, and 78/78 tests reported."
+      ]
+    },
+    "sources": [
+      "Investigación: 58–68"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-21",
+    "date": "2026-10-25",
+    "type": "feat",
+    "scope": "antennas",
+    "title": {
+      "es": "Catálogos externos de antenas y trazabilidad",
+      "en": "External antenna catalogs and traceability"
+    },
+    "details": {
+      "es": [
+        "Importación validada de catálogos JSON, catálogo por proyecto y snapshot persistido en .orbs.",
+        "Protecciones contra duplicados, datos inválidos y sobreescritura de entradas integradas.",
+        "Historial de intentos de procesamiento con sesión y ocupaciones; versión de proyecto 4.",
+        "Suite final 74/74 pruebas reportadas."
+      ],
+      "en": [
+        "Validated JSON catalog import, per-project catalog, and snapshot persisted in .orbs.",
+        "Protection against duplicates, invalid data, and overwriting built-in entries.",
+        "Processing attempt history with session and occupations; project format version 4.",
+        "Final suite: 74/74 tests reported."
+      ]
+    },
+    "sources": [
+      "Investigación: 51–57"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-25-20",
+    "date": "2026-10-25",
+    "type": "docs",
+    "scope": "planning",
+    "title": {
+      "es": "Plan de diez capacidades y prioridades técnicas",
+      "en": "Ten-capability plan and technical priorities"
+    },
+    "details": {
+      "es": [
+        "Diez paquetes documentados con dependencias, aceptación, integración UI y hoja de ruta.",
+        "Estados iniciales Planned; planificación anterior al inicio de implementación posterior."
+      ],
+      "en": [
+        "Ten documented packages with dependencies, acceptance criteria, UI integration, and a roadmap.",
+        "Initial Planned states; planning predates subsequent implementation."
+      ]
+    },
+    "sources": [
+      "Investigación: 47–50"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-24-19",
+    "date": "2026-10-24",
+    "type": "fix",
+    "scope": "graphics",
+    "title": {
+      "es": "Cámara cartográfica y grilla adaptativa",
+      "en": "Map camera and adaptive grid"
+    },
+    "details": {
+      "es": [
+        "Corrección de orientación norte/este, escala, pan y transformación pantalla–plano.",
+        "Grilla rotulada en coordenadas proyectadas o ENU local según el sistema; adaptación al zoom.",
+        "Inversa ortográfica analítica para escalas regionales y control de profundidad para no ocultar vectores.",
+        "Verificación visual con red de 12 estaciones/22 vectores y pruebas de cámara/grilla."
+      ],
+      "en": [
+        "North/east orientation, scale, pan, and screen-to-plane transformation corrected.",
+        "Grid labeled in projected or local ENU coordinates depending on the system; zoom adaptation.",
+        "Analytical orthographic inverse for regional scales and depth control to keep vectors visible.",
+        "Visual verification with a 12-station/22-vector network and camera/grid tests."
+      ]
+    },
+    "sources": [
+      "Investigación: 36–41"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-24-18",
+    "date": "2026-10-24",
+    "type": "feat",
+    "scope": "ui",
+    "title": {
+      "es": "Nuevo workspace con temas Violet, Light y Dark",
+      "en": "New workspace with Violet, Light, and Dark themes"
+    },
+    "details": {
+      "es": [
+        "Prototipo Qt independiente y posterior integración real de WorkspaceShell y ThemeManager.",
+        "Mapa central, árbol de Project/Layers, inspector, workflow y paneles de resultados reubicados.",
+        "Acciones conectadas al funcionamiento existente y temas externos; Violet pasa a superficies oscuras con acentos morados.",
+        "Compilación, arranque nativo y suite Orbis 72/72; GeodesiGFX 4/4 reportados."
+      ],
+      "en": [
+        "Independent Qt prototype followed by actual WorkspaceShell and ThemeManager integration.",
+        "Central map, Project/Layers tree, inspector, workflow, and results panels repositioned.",
+        "Actions connected to existing functionality and external themes; Violet uses dark surfaces with purple accents.",
+        "Build, native startup, and Orbis 72/72 and GeodesiGFX 4/4 test suites reported."
+      ]
+    },
+    "sources": [
+      "Investigación: 30–35",
+      "Investigación: 39–43"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-24-17",
+    "date": "2026-10-24",
+    "type": "chore",
+    "scope": "tooling",
+    "title": {
+      "es": "Reglas de desarrollo y estructura de trabajo",
+      "en": "Development rules and workspace structure"
+    },
+    "details": {
+      "es": [
+        "Se añaden AGENTS.md, reglas de estilo C++17, clang-format, EditorConfig y configuración de VS Code.",
+        "Política de código en inglés, comentarios mínimos, motores desacoplados y bitácora continua.",
+        "Se elimina únicamente el .gitignore raíz según solicitud; no se reformatean masivamente fuentes."
+      ],
+      "en": [
+        "AGENTS.md, C++17 style rules, clang-format, EditorConfig, and VS Code configuration added.",
+        "English code policy, minimal comments, decoupled engines, and continuous development logs.",
+        "Only the root .gitignore removed as requested; no mass source reformatting."
+      ]
+    },
+    "sources": [
+      "Investigación: 25–29"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-24-16",
+    "date": "2026-10-24",
+    "type": "feat",
+    "scope": "platform",
+    "title": {
+      "es": "Compilación nativa y ejecución de Orbis en Linux",
+      "en": "Native Linux build and execution"
+    },
+    "details": {
+      "es": [
+        "Adaptación de CMake/Qt/Eigen y empaquetado local de dependencias de GeodesiGFX.",
+        "Presets de compilación, script de ejecución y documentación Linux.",
+        "Compilación completa y apertura nativa en Wayland/OpenGL; corrección de un test numérico no portable sin alterar el algoritmo GNSS.",
+        "Suite inicial de Orbis 69/70, test focalizado corregido y GeodesiGFX 3/3 aprobados en el cierre reportado."
+      ],
+      "en": [
+        "CMake/Qt/Eigen adaptation and local packaging of GeodesiGFX dependencies.",
+        "Build presets, launch script, and Linux documentation.",
+        "Full build and native Wayland/OpenGL startup; nonportable numerical test corrected without changing the GNSS algorithm.",
+        "Initial Orbis suite 69/70, corrected focused test, and GeodesiGFX 3/3 passing at the documented close."
+      ]
+    },
+    "sources": [
+      "Investigación: 17–24"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-24-15",
+    "date": "2026-10-24",
+    "type": "research",
+    "scope": "research",
+    "title": {
+      "es": "Estudio técnico de TBC 5.20 y análisis de brechas",
+      "en": "TBC 5.20 technical study and gap analysis"
+    },
+    "details": {
+      "es": [
+        "Inventario e inspección estática de MSI, CAB, ayuda local, DLL y catálogos; sin ejecutar instaladores ni copiar motores propietarios.",
+        "Comparación de líneas base, ajuste, RTK, grilla, antenas, CRS y formatos de datos frente a Orbis.",
+        "Informes con evidencia, límites conocidos, dependencias y prioridades de desarrollo propio."
+      ],
+      "en": [
+        "Inventory and static inspection of MSI, CAB, local help, DLLs, and catalogs, without running installers or copying proprietary engines.",
+        "Comparison of baselines, adjustment, RTK, grid, antennas, CRS, and data formats against Orbis.",
+        "Reports with evidence, known limits, dependencies, and priorities for independent development."
+      ]
+    },
+    "sources": [
+      "Investigación: 0–16",
+      "Investigación: 44–46"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-07-14",
+    "date": "2026-10-07",
+    "type": "feat",
+    "scope": "graphics",
+    "title": {
+      "es": "Primera integración de GeodesiGFX",
+      "en": "First GeodesiGFX integration"
+    },
+    "details": {
+      "es": [
+        "Se registra la primera fase de integración del motor gráfico GeodesiGFX con Orbis.",
+        "Es una etapa anterior al rediseño de workspace y grilla realizado el 24 de octubre."
+      ],
+      "en": [
+        "First phase of GeodesiGFX graphics engine integration with Orbis recorded.",
+        "This stage precedes the workspace and grid redesign on October 24."
+      ]
+    },
+    "sources": [
+      "Inicial: 9 / GeodesiGFX Phase 1"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-07-13",
+    "date": "2026-10-07",
+    "type": "test",
+    "scope": "app",
+    "title": {
+      "es": "Stage 3.3 — Validación end-to-end y estabilización",
+      "en": "Stage 3.3 — End-to-end validation and stabilization"
+    },
+    "details": {
+      "es": [
+        "Verificación del flujo completo de procesamiento, salida y reportes.",
+        "Estabilización de vínculos GNSS Station/RINEX y configuración de antenas mark-to-ARP.",
+        "Se conserva la distinción entre resultados comprobados, tareas pendientes e integración posterior."
+      ],
+      "en": [
+        "Verification of the complete processing, output, and reporting workflow.",
+        "Stabilization of GNSS Station/RINEX links and mark-to-ARP antenna configuration.",
+        "Verified results, pending tasks, and subsequent integration remain distinguished."
+      ]
+    },
+    "sources": [
+      "Inicial: 9 / Stages 3.3 y estabilización"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-06-12",
+    "date": "2026-10-06",
+    "type": "feat",
+    "scope": "app",
+    "title": {
+      "es": "Stage 3.1–3.2 — Integración de aplicación, persistencia e informes",
+      "en": "Stages 3.1–3.2 — Application integration, persistence, and reports"
+    },
+    "details": {
+      "es": [
+        "Integración de los nuevos resultados GNSS en el flujo de aplicación.",
+        "Persistencia de información de procesamiento y ampliación de resultados/reportes, según el registro consolidado."
+      ],
+      "en": [
+        "Integration of new GNSS results into the application workflow.",
+        "Persistence of processing information and expanded results/reports, according to the consolidated record."
+      ]
+    },
+    "sources": [
+      "Inicial: 9 / Stages 3.1, 3.2"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-06-11",
+    "date": "2026-10-06",
+    "type": "feat",
+    "scope": "geodesy",
+    "title": {
+      "es": "Stage 2.4 — Marcos de referencia y épocas",
+      "en": "Stage 2.4 — Reference frames and epochs"
+    },
+    "details": {
+      "es": [
+        "Incorporación del modelado de marcos de referencia, realizaciones y épocas para los resultados geodésicos.",
+        "Separación entre información de referencia y transformaciones operativas, que requieren validación independiente."
+      ],
+      "en": [
+        "Modeling of reference frames, realizations, and epochs for geodetic results.",
+        "Separation of reference information from operational transformations, which require independent validation."
+      ]
+    },
+    "sources": [
+      "Inicial: 9 / Stage 2.4"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-06-10",
+    "date": "2026-10-06",
+    "type": "feat",
+    "scope": "gnss",
+    "title": {
+      "es": "Stage 2.3 — Pipeline FLOAT/FIXED y resolución de ambigüedades",
+      "en": "Stage 2.3 — FLOAT/FIXED pipeline and ambiguity resolution"
+    },
+    "details": {
+      "es": [
+        "Integración del flujo FLOAT → búsqueda/validación de enteros → condicionamiento FIXED.",
+        "Manejo de rechazo y conservación de resultados FLOAT cuando no procede aceptar FIXED.",
+        "Etapa presentada como implementada en el registro consolidado de Stage 2–3."
+      ],
+      "en": [
+        "Integration of FLOAT → integer search/validation → FIXED conditioning.",
+        "Rejection handling and retention of FLOAT results when FIXED acceptance is inappropriate.",
+        "Presented as implemented in the consolidated Stage 2–3 record."
+      ]
+    },
+    "sources": [
+      "Inicial: 9 / Stage 2.3"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-06-09",
+    "date": "2026-10-06",
+    "type": "feat",
+    "scope": "gnss",
+    "title": {
+      "es": "Stage 2.2 — Validación de ambigüedades y solución FIXED",
+      "en": "Stage 2.2 — Ambiguity validation and FIXED solution"
+    },
+    "details": {
+      "es": [
+        "Separación de la política de aceptación de ambigüedades del condicionamiento matemático FIXED.",
+        "Validaciones de candidatos, umbrales, subsistemas y rutas de error con nuevas pruebas.",
+        "42/42 pruebas reportadas; el registro señala expresamente que todavía no se había ejecutado un commit."
+      ],
+      "en": [
+        "Separation of ambiguity acceptance policy from mathematical FIXED conditioning.",
+        "Candidate, threshold, subsystem, and error-path validation with new tests.",
+        "42/42 tests reported; the record explicitly states that no commit had yet been made."
+      ]
+    },
+    "sources": [
+      "Inicial: 8"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-04-08",
+    "date": "2026-10-04",
+    "type": "feat",
+    "scope": "gnss",
+    "title": {
+      "es": "Stage 1.3 — Solver FLOAT de fase portadora",
+      "en": "Stage 1.3 — Carrier-phase FLOAT solver"
+    },
+    "details": {
+      "es": [
+        "Implementación del sistema de ecuaciones y ajuste iterativo FLOAT con LDLT, controles de rango y covarianzas.",
+        "Corrección del signo de ambigüedades de fase y validación de derivadas respecto del rover.",
+        "Residuos, métricas de calidad y manejo de cambios de arco, saltos y brechas.",
+        "35/35 pruebas reportadas y ejecución real sobre línea base LLFN–LNQM de ~104 km; persisten errores por efectos no modelados."
+      ],
+      "en": [
+        "FLOAT equation system and iterative adjustment implemented with LDLT, rank checks, and covariances.",
+        "Carrier-phase ambiguity sign corrected and rover-relative derivatives validated.",
+        "Residuals, quality metrics, and handling of arc changes, cycle slips, and gaps.",
+        "35/35 tests reported and actual execution on the approximately 104 km LLFN–LNQM baseline; errors from unmodeled effects remain."
+      ]
+    },
+    "sources": [
+      "Inicial: 7"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-04-07",
+    "date": "2026-10-04",
+    "type": "fix",
+    "scope": "gnss",
+    "title": {
+      "es": "Stage 1.2 — Geometría, correcciones y dobles diferencias",
+      "en": "Stage 1.2 — Geometry, corrections, and double differences"
+    },
+    "details": {
+      "es": [
+        "Corrección del detector geometry-free para trabajar en unidades consistentes y evitar falsos saltos de ciclo.",
+        "Correcciones de reloj satelital, Sagnac, referencia de satélite, arcos y modelo de covarianza de dobles diferencias.",
+        "Pruebas matemáticas independientes y validación con datos reales LLFN/LNQM; 30/30 pruebas reportadas.",
+        "MW, Doppler e ionosfera completa permanecen fuera de esta etapa."
+      ],
+      "en": [
+        "Geometry-free detector corrected to use consistent units and avoid false cycle slips.",
+        "Satellite clock, Sagnac, reference satellite, arc, and double-difference covariance corrections.",
+        "Independent mathematical tests and validation with real LLFN/LNQM data; 30/30 tests reported.",
+        "MW, Doppler, and full ionosphere modeling remain outside this stage."
+      ]
+    },
+    "sources": [
+      "Inicial: 6"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-03-06",
+    "date": "2026-10-03",
+    "type": "feat",
+    "scope": "gnss",
+    "title": {
+      "es": "Stage 1.1 — Señales GNSS y preprocesamiento",
+      "en": "Stage 1.1 — GNSS signals and preprocessing"
+    },
+    "details": {
+      "es": [
+        "Modelo de señales, códigos RINEX 2/3 y selección determinista de observables.",
+        "Preparación de observaciones por época/satélite, conservación de LLI/SSI y registro de rechazos.",
+        "Caché RINEX compartida y corrección de errores de lectura; 23/23 pruebas reportadas."
+      ],
+      "en": [
+        "Signal model, RINEX 2/3 codes, and deterministic observable selection.",
+        "Observations prepared per epoch/satellite, LLI/SSI retained, and rejections recorded.",
+        "Shared RINEX cache and reader bug fixes; 23/23 tests reported."
+      ]
+    },
+    "sources": [
+      "Inicial: 5"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-03-05",
+    "date": "2026-10-03",
+    "type": "feat",
+    "scope": "ui",
+    "title": {
+      "es": "Interfaz espacial y flujo completo de procesamiento",
+      "en": "Spatial interface and complete processing workflow"
+    },
+    "details": {
+      "es": [
+        "Vista espacial central, explorador de proyecto, paneles de propiedades y resultados, tabla de puntos y menús especializados.",
+        "Importación RINEX múltiple, vista de cobertura temporal, enlaces estación-observación y gestión de archivos.",
+        "Integración de SP3, ERP, líneas base y ajuste de red; flujo Proyecto → procesamiento → informe PDF.",
+        "Informe multipágina con estadísticas, coordenadas, residuos, precisión y matrices; validación real reportada con baseline de ~111 km.",
+        "Se corrige el informe que mostraba coordenadas cero por leer campos incorrectos; 20/20 pruebas reportadas."
+      ],
+      "en": [
+        "Central spatial view, project explorer, properties and results panels, point table, and specialized menus.",
+        "Multiple RINEX import, time coverage view, station-observation links, and file management.",
+        "SP3, ERP, baseline, and network adjustment integration; Project → processing → PDF report workflow.",
+        "Multipage report with statistics, coordinates, residuals, precision, and matrices; actual validation reported with an approximately 111 km baseline.",
+        "Report showing zero coordinates due to incorrect field access fixed; 20/20 tests reported."
+      ]
+    },
+    "sources": [
+      "Inicial: 4"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-01-04",
+    "date": "2026-10-01",
+    "type": "feat",
+    "scope": "rinex",
+    "title": {
+      "es": "Primer lector de observaciones RINEX",
+      "en": "First RINEX observation reader"
+    },
+    "details": {
+      "es": [
+        "Lectura de RINEX 2.x/3.x, gzip y CRINEX; metadatos de estación, receptor, épocas y satélites.",
+        "Procesamiento por épocas para limitar memoria; validación reportada con dos archivos reales de 86.400 épocas y 14/14 pruebas.",
+        "Primera versión independiente de la interfaz y del ajuste."
+      ],
+      "en": [
+        "RINEX 2.x/3.x, gzip, and CRINEX reading; station, receiver, epoch, and satellite metadata.",
+        "Epoch-by-epoch processing to limit memory; validation reported with two real files of 86,400 epochs and 14/14 tests.",
+        "First version independent of the interface and adjustment engine."
+      ]
+    },
+    "sources": [
+      "Inicial: 3"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-01-03",
+    "date": "2026-10-01",
+    "type": "feat",
+    "scope": "geodesy",
+    "title": {
+      "es": "Conversión CSV a ECEF y pruebas del ajuste",
+      "en": "CSV-to-ECEF conversion and adjustment tests"
+    },
+    "details": {
+      "es": [
+        "Herramienta de conversión geodésicas/UTM a XYZ ECEF con columnas, elipsoide, zona y hemisferio configurables.",
+        "Pruebas de redes determinadas/redundantes, residuos, covarianzas y grados de libertad; 13/13 pruebas reportadas.",
+        "Herramienta auxiliar de revisión de matrices y resultados."
+      ],
+      "en": [
+        "Geodetic/UTM-to-XYZ ECEF conversion with configurable columns, ellipsoid, zone, and hemisphere.",
+        "Determined/redundant network, residual, covariance, and degrees-of-freedom tests; 13/13 tests reported.",
+        "Supporting tool for reviewing matrices and results."
+      ]
+    },
+    "sources": [
+      "Inicial: 2"
+    ]
+  },
+  {
+    "id": "orbis-2026-10-01-02",
+    "date": "2026-10-01",
+    "type": "chore",
+    "scope": "project",
+    "title": {
+      "es": "GNSS Libre pasa a llamarse Orbis Spatial",
+      "en": "GNSS Libre renamed Orbis Spatial"
+    },
+    "details": {
+      "es": [
+        "Se adopta Orbis Spatial como nombre del proyecto completo.",
+        "Se actualizan descripción, funciones existentes y hoja de ruta; producto todavía experimental."
+      ],
+      "en": [
+        "Orbis Spatial adopted as the name for the complete project.",
+        "Description, existing functions, and roadmap updated; product remains experimental."
+      ]
+    },
+    "sources": [
+      "Inicial: 1"
+    ]
+  },
+  {
+    "id": "orbis-2026-09-23-01",
+    "date": "2026-09-23",
+    "type": "chore",
+    "scope": "project",
+    "title": {
+      "es": "Inicio de Orbis Spatial y configuración del repositorio",
+      "en": "Orbis Spatial begins: repository setup"
+    },
+    "details": {
+      "es": [
+        "Inicio del repositorio Qt 6, C++17, CMake y Eigen; estructura para proyectos, puntos y cálculo geodésico.",
+        "Se registran importación/exportación CSV, formato .orbs, modelos ECEF y arquitectura inicial de ajuste 3D.",
+        "Configuración inicial de Git, compilación y política privada del código fuente."
+      ],
+      "en": [
+        "Qt 6, C++17, CMake, and Eigen repository started with structures for projects, points, and geodetic calculations.",
+        "CSV import/export, .orbs format, ECEF models, and initial 3D adjustment architecture recorded.",
+        "Initial Git setup, build, and private source code policy."
+      ]
+    },
+    "sources": [
+      "Inicial: 0"
+    ]
+  }
+]

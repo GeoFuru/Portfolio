@@ -641,3 +641,96 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+
+.project-introduction .project-prose + .project-prose { margin-top: 16px; }
+.project-methodologies { margin-top: 16px; line-height: 1.7; }
+.project-prose-block h3 { margin: 28px 0 12px; }
+.project-prose-block ul { padding-left: 24px; margin: 16px 0; }
+.project-prose-block li + li { margin-top: 8px; }
+.project-feature .project-prose + .project-prose { margin-top: 16px; }
+.media-video-caption span { white-space: pre-line; }
+
+.project-engineering-highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid var(--color-border);
+}
+.project-engineering-icon { flex-shrink: 0; margin-top: 3px; color: var(--color-primary); }
+.project-detail .project-engineering-highlight h2 {
+  margin: 0 0 6px;
+  font: 500 16px/1.5 var(--font-body);
+  color: var(--color-text);
+}
+.project-engineering-highlight p {
+  margin: 0;
+  font: 14px/1.7 var(--font-body);
+  color: var(--color-text-secondary);
+}
+
+
+.project-updates-page { min-height: 65vh; }
+.project-updates-header { margin: 28px 0 36px; }
+.project-updates-header h1 { margin: 12px 0; font-family: var(--font-display); }
+.project-updates-header > p:last-child { color: var(--color-text-secondary); }
+.project-updates-list { list-style: none; margin: 0; padding: 0; }
+.project-update-entry {
+  display: grid;
+  grid-template-columns: minmax(150px, .5fr) minmax(0, 2fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--color-border);
+}
+.project-update-meta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; font: 12px/1.7 var(--font-mono); color: var(--color-primary); }
+.project-update-meta code { overflow-wrap: anywhere; color: var(--color-text-muted); }
+.project-update-entry h2 { margin: 0 0 14px; font: 500 21px/1.4 var(--font-display); }
+.project-update-entry .project-prose + .project-prose { margin-top: 14px; }
+.project-updates-empty { padding: 24px 0; border-top: 1px solid var(--color-border); color: var(--color-text-secondary); line-height: 1.8; }
+@media (max-width: 640px) {
+  .project-update-entry { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+}
+
+.project-mixed-carousel { max-width: 1000px; margin: auto; }
+.project-carousel-slide { margin: 0; }
+.project-detail .project-carousel-slide video,
+.project-detail .project-carousel-slide img { display: block; width: 100%; height: auto; max-height: 620px; object-fit: contain; background: #100b0e; }
+.project-carousel-slide figcaption { white-space: pre-line; }
+.project-carousel-toolbar { display: flex; align-items: center; gap: 12px; padding-top: 16px; }
+.project-carousel-toolbar .media-carousel-control { flex-shrink: 0; }
+.project-carousel-selectors { display: flex; flex-wrap: wrap; gap: 7px; flex: 1; }
+.project-carousel-selectors button { padding: 7px 10px; border: 1px solid var(--color-border); background: transparent; color: var(--color-text-secondary); font: 11px/1.5 var(--font-mono); cursor: pointer; }
+.project-carousel-selectors button[aria-current], .project-carousel-selectors button:hover { color: var(--color-primary); border-color: var(--color-primary); }
+.project-carousel-position { font: 11px var(--font-mono); white-space: nowrap; color: var(--color-text-muted); }
+.project-updates-header { border: 1px solid var(--color-border); background: var(--color-surface); padding: 0 26px 26px; }
+.project-updates-bar { margin: 0 -26px 24px; padding: 0 20px; border-bottom: 1px solid var(--color-border); font: 10px var(--font-mono); color: var(--color-text-muted); }
+.project-updates-header > p:last-child { max-width: 760px; line-height: 1.8; }
+.project-updates-controls { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; margin: 28px 0 16px; }
+.project-updates-controls label { display: flex; flex-direction: column; gap: 9px; font: 11px/1.5 var(--font-mono); color: var(--color-text-secondary); }
+.project-updates-controls input, .project-updates-controls select { width: 100%; min-width: 0; border: 1px solid var(--color-border); border-radius: 0; padding: 13px 14px; font: 14px var(--font-body); background: var(--color-surface); color: var(--color-text); }
+.project-updates-count { margin-bottom: 20px; font: 12px var(--font-mono); color: var(--color-text-muted); }
+.project-log-entry { margin-bottom: 12px; border: 1px solid var(--color-border); border-left: 2px solid var(--color-primary); background: var(--color-surface); }
+.project-log-entry summary { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; list-style: none; cursor: pointer; padding: 21px 24px; }
+.project-log-entry summary::-webkit-details-marker { display: none; }
+.project-log-entry time { display: block; margin-bottom: 9px; color: var(--color-text-muted); font: 11px/1.6 var(--font-mono); }
+.project-log-entry h2 { margin: 0; font: 500 17px/1.6 var(--font-body); }
+.project-log-kind { color: var(--color-primary); font-family: var(--font-mono); font-size: 13px; }
+.project-log-toggle { color: var(--color-primary); font-size: 24px; line-height: 1; }
+.project-log-toggle::before { content: '+'; }
+.project-log-entry[open] .project-log-toggle::before { content: '−'; }
+.project-log-body { padding: 0 24px 22px; color: var(--color-text-secondary); font: 15px/1.8 var(--font-body); }
+.project-log-body ul { margin: 0 0 16px; padding-left: 22px; }
+.project-log-body li + li { margin-top: 9px; }
+.project-log-note { color: var(--color-primary-hover); margin: 14px 0; }
+.project-log-source, .project-log-editorial-note { color: var(--color-text-muted); font: 11px/1.8 var(--font-mono); overflow-wrap: anywhere; }
+.project-log-editorial-note { margin-top: 28px; }
+@media (max-width: 640px) {
+  .project-updates-controls { grid-template-columns: minmax(0, 1fr); }
+  .project-log-entry summary { padding: 18px 14px; }
+  .project-log-body { padding: 0 14px 18px; }
+  .project-carousel-toolbar { gap: 7px; flex-wrap: wrap; }
+  .project-carousel-selectors { order: 4; flex-basis: 100%; }
+  .project-carousel-position { flex: 1; text-align: center; }
+}

@@ -1,180 +1,239 @@
+import { orbisSpatialUpdates } from "./updates/orbis-spatial";
 import type { Project } from "../types/project";
 
 export const projects: Project[] = [
   {
-
-    // Orbis spatial
-
-    id: "orbis-spatial",
-    visibility: "public",
-
-    title: {
-      en: "Orbis Spatial",
-      es: "Orbis Spatial",
+    "id": "orbis-spatial",
+    updates: orbisSpatialUpdates,
+    "visibility": "public",
+    "title": {
+      "en": "Orbis Spatial",
+      "es": "Orbis Spatial"
     },
-
-    description: {
-      en: "A C++ desktop application bringing GNSS processing, coordinate management, and geodetic network adjustment into one workspace.",
-      es: "Aplicación de escritorio desarrollada en C++ que reúne el procesamiento GNSS, la gestión de coordenadas y el ajuste de redes geodésicas en un mismo entorno.",
+    "subtitle": {
+      "es": "Software de escritorio para procesamiento GNSS y análisis geodésico.",
+      "en": "Desktop software for GNSS processing and geodetic analysis."
     },
-
-    subtitle: {
-      en: "Desktop software for geomatics, GNSS, and geodesy",
-      es: "Software de escritorio para geomática, GNSS y geodesia",
+    "description": {
+      "en": "A C++17 desktop platform for geodetic processing, GNSS data management, and spatial network analysis. In alpha and active development.",
+      "es": "Plataforma de escritorio en C++17 para procesamiento geodésico, gestión de datos GNSS y análisis de redes espaciales. En fase alfa y desarrollo activo."
     },
-
-    sections: [
-      {
-        id: "overview",
-        type: "overview",
-        eyebrow: {
-          en: "02 / Context",
-          es: "02 / Contexto",
-        },
-
-        title: {
-          en: "Why Orbis Spatial?",
-          es: "¿Por qué Orbis Spatial?",
-        },
-
-        content: {
-          en: "Orbis grew from my interest in geodesy and software development, and from the idea of bringing common geomatics workflows together in one tool.\n\nThe goal is to keep geodetic and mathematical operations rigorous without making people confront their internal complexity at every step. The project therefore focuses on organizing data, configuring processes, and presenting results clearly as well as implementing algorithms.\n\nDevelopment is incremental: it starts with data structures, coordinate models, and core calculations, then builds toward more advanced tools.",
-          es: "Orbis nació de mi interés por la geodesia y el desarrollo de software, y de la idea de reunir en una herramienta distintos procesos habituales de la geomática.\n\nEl objetivo es mantener el rigor de las operaciones matemáticas y geodésicas sin que las personas deban enfrentarse a su complejidad interna en cada paso. Por eso, el proyecto busca organizar los datos, facilitar la configuración de los procesos y presentar los resultados con claridad, además de implementar algoritmos.\n\nEl desarrollo es progresivo: comienza por las estructuras de datos, los modelos de coordenadas y los cálculos fundamentales, y avanza hacia herramientas más complejas.",
-        },
-      },
-      {
-        id: "technical-approach",
-        type: "approach",
-        eyebrow: {
-          en: "04 / Technical development",
-          es: "04 / Desarrollo técnico",
-        },
-        title: {
-          en: "Architecture, technologies, and validation",
-          es: "Arquitectura, tecnologías y validación",
-        },
-        content: {
-          en: "Orbis Spatial is developed in C++17, with Qt 6 for the desktop interface, Eigen for linear algebra, and CMake for project configuration and builds. Its architecture separates the interface, project data, geodetic models, and processing engines. This makes it possible to develop and test mathematical components independently and add tools without concentrating the application logic in the interface.\n\nA key part of development is checking mathematical consistency before integrating components into application workflows. Automated tests, synthetic cases, and adjustment networks with known results are used for this purpose. GNSS validation also examines algorithm behavior and integration across calculation stages. These checks support development; they are not a certification of accuracy for professional use.",
-          es: "Orbis Spatial está desarrollado en C++17, con Qt 6 para la interfaz de escritorio, Eigen para álgebra lineal y CMake para configurar y compilar el proyecto. Su arquitectura separa la interfaz, los datos del proyecto, los modelos geodésicos y los motores de procesamiento. Esto permite desarrollar y probar los componentes matemáticos de forma independiente, e incorporar herramientas sin concentrar la lógica de la aplicación en la interfaz.\n\nUna parte importante del desarrollo es comprobar la consistencia matemática antes de integrar los componentes en los flujos de trabajo. Para ello se utilizan pruebas automatizadas, casos sintéticos y redes de ajuste con resultados conocidos. La validación GNSS también revisa el comportamiento de los algoritmos y su integración entre las distintas etapas del cálculo. Estas comprobaciones apoyan el desarrollo; no constituyen una certificación de precisión para uso profesional.",
-        },
-      },
-      {
-        id: "current-status",
-        type: "results",
-        eyebrow: {
-          en: "05 / Project status",
-          es: "05 / Estado del proyecto",
-        },
-        title: {
-          en: "A project in active development",
-          es: "Un proyecto en desarrollo activo",
-        },
-        content: {
-          en: "Orbis Spatial is not a finished application. It already has a functional foundation for project management, coordinate representation, and geodetic calculations, while some GNSS tools still need further stabilization and validation before they are ready for regular use.\n\nThe current priority is to consolidate existing workflows, improve communication between calculation engines and the interface, and expand tools for configuring processes and reviewing results. Longer term, I would like to add surveying tools, transformations, visualization, and automation while keeping an architecture that can support the software's gradual growth.",
-          es: "Orbis Spatial todavía no es una aplicación terminada. Ya cuenta con una base funcional para gestionar proyectos, representar coordenadas y ejecutar cálculos geodésicos, mientras que algunas herramientas GNSS aún requieren estabilización y validación antes de estar listas para un uso habitual.\n\nLa prioridad actual es consolidar los procesos existentes, mejorar la comunicación entre los motores de cálculo y la interfaz, y ampliar las herramientas para configurar procesos y revisar resultados. A largo plazo, me gustaría incorporar herramientas de levantamiento, transformaciones, visualización y automatización, manteniendo una arquitectura que permita ampliar el software de forma progresiva.",
-        },
-      },
+    "introduction": {
+      "es": "Proyecto de ingeniería de software científico desarrollado en C++17. Integra gestión de coordenadas, procesamiento de información GNSS y ajuste de redes mediante una arquitectura modular.",
+      "en": "A scientific software engineering project developed in C++17. It integrates coordinate management, GNSS data processing, and network adjustment within a modular architecture."
+    },
+    "methodologies": [
+      "Scientific Computing",
+      "Software Architecture",
+      "Automated Testing",
+      "AI-assisted Development"
     ],
-
-    featuresEyebrow: {
-      en: "03 / Capabilities",
-      es: "03 / Funcionalidades",
+    "statusDetail": {
+      "en": "Active development",
+      "es": "Desarrollo activo"
     },
-    featuresTitle: {
-      en: "What Orbis Spatial is being built to do",
-      es: "Herramientas que reúne Orbis Spatial",
-    },
-    features: [
+    "sections": [
       {
-        id: "project-coordinates",
-        title: {
-          en: "Project and coordinate management",
-          es: "Gestión de proyectos y coordenadas",
+        "id": "overview",
+        "type": "overview",
+        "eyebrow": {
+          "en": "02 / Context",
+          "es": "02 / Contexto"
         },
-        description: {
-          en: "Projects organize points, stations, and related resources in the native .orbs format. The coordinate model includes geocentric Cartesian (ECEF), geodetic, and projected representations, with ellipsoids, reference frames, and coordinate systems modeled separately.",
-          es: "Los proyectos permiten organizar puntos, estaciones y otros recursos en el formato propio .orbs. El modelo de coordenadas contempla representaciones cartesianas geocéntricas (ECEF), geodésicas y proyectadas, y mantiene separados los elipsoides, los marcos de referencia y los sistemas de coordenadas.",
+        "title": {
+          "en": "Why Orbis Spatial?",
+          "es": "¿Por qué Orbis Spatial?"
         },
+        "content": {
+          "en": "Orbis Spatial emerged from the convergence of geodesy, software engineering, and the need for scientific tools that support structured work with spatial information.\n\nThe project aims to address the complexity of geodetic processing through an architecture that separates mathematical models, data management, and the user experience.\n\nIts goal goes beyond implementing algorithms: it seeks to build an extensible, verifiable, and technically consistent working environment.\n\nDevelopment follows an incremental approach, starting with fundamental coordinate models, data structures, and mathematical operations before integrating more advanced capabilities for GNSS processing, network adjustment, and workflow automation.\n\nThis approach allows each component to be evaluated independently before it becomes part of more complex processes.",
+          "es": "Orbis Spatial nace de la convergencia entre la geodesia, la ingeniería de software y la necesidad de herramientas científicas que permitan trabajar con información espacial de manera estructurada.\n\nEl proyecto busca abordar la complejidad del procesamiento geodésico mediante una arquitectura que separe los modelos matemáticos, la gestión de datos y la experiencia de usuario.\n\nSu objetivo no es únicamente implementar algoritmos, sino construir un entorno de trabajo extensible, verificable y técnicamente consistente.\n\nEl desarrollo sigue un enfoque incremental, comenzando por los modelos fundamentales de coordenadas, estructuras de datos y operaciones matemáticas, para posteriormente integrar capacidades más avanzadas de procesamiento GNSS, ajuste de redes y automatización de flujos de trabajo.\n\nEsta aproximación permite evaluar cada componente de forma independiente antes de incorporarlo a procesos de mayor complejidad."
+        }
       },
       {
-        id: "gnss-processing",
-        title: {
-          en: "GNSS processing",
-          es: "Procesamiento GNSS",
+        "id": "technical-approach",
+        "type": "approach",
+        "eyebrow": {
+          "en": "04 / Software engineering",
+          "es": "04 / Ingeniería de software"
         },
-        description: {
-          en: "Components are being developed for RINEX observation files and precise orbit products. The GNSS engine is still in progress, with baseline processing, FLOAT solutions, and integer ambiguity resolution using LAMBDA among its planned capabilities. Current work focuses on integration, behavior with real data, and making results easier to review.",
-          es: "Se están desarrollando componentes para trabajar con archivos de observación RINEX y productos orbitales precisos. El motor GNSS sigue en desarrollo e incluye entre sus capacidades previstas el procesamiento de líneas base, soluciones FLOAT y resolución de ambigüedades enteras mediante LAMBDA. El trabajo actual se centra en integrar estos componentes, evaluar su comportamiento con datos reales y facilitar la revisión de resultados.",
+        "title": {
+          "en": "Architecture, technologies, and quality assurance",
+          "es": "Arquitectura, tecnologías y aseguramiento de calidad"
         },
+        "content": {
+          "en": "Orbis Spatial is developed in **C++17**, using **Qt 6** for the desktop interface, **Eigen** for numerical computing, and **CMake** to configure the build system.\n\nThe architecture organizes the project by separating responsibilities across:\n\n- Interface and interaction components.\n- Data models and persistence.\n- Coordinate systems and geodetic references.\n- Calculation engines and scientific processing.\n- Automated tests and validation tools.\n\nThis modular design allows components to be developed, verified, and maintained independently, reducing coupling between scientific logic and visual presentation.\n\n### Validation and quality\n\nDevelopment incorporates automated tests, synthetic scenarios, adjustment networks with known results, and mathematical consistency checks.\n\nReviews also cover data integrity, coordinate transformations, processing state management, and compatibility between components.\n\nThese practices aim to improve software reliability and reproducibility without replacing the certification and validation processes required for professional applications.\n\n**Methodologies:** Scientific Computing · Software Architecture · Automated Testing · AI-assisted Development",
+          "es": "Orbis Spatial está desarrollado en **C++17**, utilizando **Qt 6** para la interfaz de escritorio, **Eigen** para computación numérica y **CMake** para la configuración del sistema de compilación.\n\nLa arquitectura organiza el proyecto mediante una separación de responsabilidades entre:\n\n- Interfaz y componentes de interacción.\n- Modelos y persistencia de datos.\n- Sistemas de coordenadas y referencias geodésicas.\n- Motores de cálculo y procesamiento científico.\n- Pruebas automatizadas y herramientas de validación.\n\nEste diseño modular permite desarrollar, verificar y mantener componentes de forma independiente, reduciendo el acoplamiento entre la lógica científica y la presentación visual.\n\n### Validación y calidad\n\nEl desarrollo incorpora pruebas automatizadas, escenarios sintéticos, redes de ajuste con resultados conocidos y comprobaciones de consistencia matemática.\n\nTambién se realizan revisiones de integridad de datos, transformaciones de coordenadas, manejo de estados de procesamiento y compatibilidad entre componentes.\n\nEstas prácticas buscan mejorar la confiabilidad y reproducibilidad del software, sin sustituir los procesos de certificación y validación requeridos para aplicaciones profesionales.\n\n**Metodologías:** Scientific Computing · Software Architecture · Automated Testing · AI-assisted Development"
+        }
       },
       {
-        id: "network-adjustment",
-        title: {
-          en: "Geodetic network adjustment",
-          es: "Ajuste de redes geodésicas",
+        "id": "artificial-intelligence",
+        "type": "approach",
+        "eyebrow": {
+          "en": "05 / Artificial intelligence",
+          "es": "05 / Inteligencia artificial"
         },
-        description: {
-          en: "A three-dimensional least-squares engine works with vector observations between points. It builds design and weight matrices, solves the system, and estimates residuals and precision for adjusted coordinates. The calculations use Eigen and can be tested independently of the graphical interface.",
-          es: "El motor de ajuste tridimensional por mínimos cuadrados trabaja con observaciones vectoriales entre puntos. Construye las matrices de diseño y ponderación, resuelve el sistema y estima los residuos y la precisión de las coordenadas ajustadas. Los cálculos utilizan Eigen y pueden probarse independientemente de la interfaz gráfica.",
+        "title": {
+          "en": "AI-assisted Software Engineering & Agentic Workflows",
+          "es": "AI-assisted Software Engineering & Agentic Workflows"
         },
+        "content": {
+          "en": "Orbis Spatial incorporates artificial intelligence tools into its software engineering methodology.\n\n**Large Language Models (LLMs)** and coding agents support technical research, code analysis, implementation, refactoring, documentation, and test design.\n\nAI-assisted work includes:\n\n### LLM-assisted Development\n\nUsing language models to support component implementation, understand dependencies, review design alternatives, and document technical decisions.\n\n### AI Agents & Tool-based Workflows\n\nUsing development agents that can work with environment tools, inspect repositories, execute tasks, and support verification processes.\n\n### Agent Skills & Context Engineering\n\nStructuring specialized instructions, technical context, and reusable procedures to guide agents in programming and research tasks.\n\n### Human-in-the-loop Validation\n\nHuman supervision and evaluation of AI-assisted results, especially for mathematical implementations, geodetic algorithms, and operations that require numerical consistency.\n\n### Automated Testing & Verification\n\nIntegrating automated tests and results review to check implementations against the project's technical requirements.\n\nArtificial intelligence supports the development process, while architectural decisions, scientific interpretation, and acceptance of results remain under human supervision.",
+          "es": "El desarrollo de Orbis Spatial incorpora herramientas de inteligencia artificial como parte de su metodología de ingeniería de software.\n\nSe utilizan **Large Language Models (LLMs)** y agentes de programación para apoyar actividades de investigación técnica, análisis de código, implementación, refactorización, documentación y diseño de pruebas.\n\nEl trabajo con IA incluye:\n\n### LLM-assisted Development\n\nUso de modelos de lenguaje para apoyar la implementación de componentes, comprender dependencias, revisar alternativas de diseño y documentar decisiones técnicas.\n\n### AI Agents & Tool-based Workflows\n\nUtilización de agentes de desarrollo capaces de trabajar con herramientas del entorno, inspeccionar repositorios, ejecutar tareas y apoyar procesos de verificación.\n\n### Agent Skills & Context Engineering\n\nEstructuración de instrucciones especializadas, contexto técnico y procedimientos reutilizables para orientar el trabajo de agentes en tareas de programación e investigación.\n\n### Human-in-the-loop Validation\n\nSupervisión y evaluación humana de los resultados generados con asistencia de IA, especialmente en implementaciones matemáticas, algoritmos geodésicos y operaciones que requieren consistencia numérica.\n\n### Automated Testing & Verification\n\nIntegración de pruebas automatizadas y revisión de resultados como mecanismos para contrastar las implementaciones con los requisitos técnicos del proyecto.\n\nLa inteligencia artificial funciona como herramienta de apoyo al proceso de desarrollo, mientras que las decisiones de arquitectura, interpretación científica y aceptación de resultados permanecen bajo supervisión humana."
+        }
       },
+      {
+        "id": "current-status",
+        "type": "results",
+        "eyebrow": {
+          "en": "06 / Status and evolution",
+          "es": "06 / Estado y evolución"
+        },
+        "title": {
+          "en": "Active development and upcoming challenges",
+          "es": "Desarrollo activo y próximos desafíos"
+        },
+        "content": {
+          "en": "Orbis Spatial is in alpha, with a functional foundation for project management, coordinate representation, and geodetic operations.\n\nGNSS processing components are still undergoing development, integration, and validation, and are not yet considered ready for general operational use.\n\nCurrent priorities include:\n\n- Consolidating calculation engines and their interfaces.\n- Expanding numerical and geodetic validation.\n- Progressively integrating GNSS processing.\n- Improving the traceability of data, configurations, and results.\n- Developing additional transformation, visualization, and automation tools.\n\nIn the long term, the project aims to evolve into a modular geospatial computing environment combining scientific processing, geodetic information management, and extensible analysis tools.\n\nOrbis Spatial is also a space for applied research and continuous learning, bringing together **geomatics, software development, scientific computing, and artificial intelligence applied to engineering**.",
+          "es": "Orbis Spatial se encuentra en fase alfa, con una base funcional para la gestión de proyectos, representación de coordenadas y ejecución de operaciones geodésicas.\n\nLos componentes de procesamiento GNSS continúan en desarrollo, integración y validación, por lo que todavía no se consideran preparados para un uso operacional generalizado.\n\nLas prioridades actuales incluyen:\n\n- Consolidación de los motores de cálculo y sus interfaces.\n- Ampliación de la validación numérica y geodésica.\n- Integración progresiva de procesamiento GNSS.\n- Mejora de la trazabilidad de datos, configuraciones y resultados.\n- Desarrollo de herramientas adicionales de transformación, visualización y automatización.\n\nA largo plazo, el proyecto busca evolucionar hacia un entorno modular de computación geoespacial que reúna procesamiento científico, gestión de información geodésica y herramientas extensibles de análisis.\n\nOrbis Spatial es también un espacio de investigación aplicada y aprendizaje continuo, donde convergen **geomática, desarrollo de software, computación científica e inteligencia artificial aplicada a la ingeniería**."
+        }
+      }
     ],
-
-    platform: "Windows",
-
-    year: 2026,
-
-    status: "alpha",
-
-    technologies: [
+    "featuresEyebrow": {
+      "en": "03 / Capabilities",
+      "es": "03 / Funcionalidades"
+    },
+    "featuresTitle": {
+      "en": "System components and capabilities",
+      "es": "Componentes y capacidades del sistema"
+    },
+    "features": [
+      {
+        "id": "project-coordinates",
+        "title": {
+          "en": "Project management and spatial data engineering",
+          "es": "Gestión de proyectos e ingeniería de datos espaciales"
+        },
+        "description": {
+          "en": "A system for organizing and persisting geodetic information using the native `.orbs` format.\n\nIt includes structures for managing points, stations, and technical resources, alongside geocentric Cartesian (ECEF), geodetic, and projected coordinate models.\n\nThe architecture explicitly distinguishes ellipsoids, coordinate systems, and reference frames, supporting data consistency and traceable operations.",
+          "es": "Sistema de organización y persistencia de información geodésica mediante el formato nativo `.orbs`.\n\nIncluye estructuras para gestionar puntos, estaciones y recursos técnicos, junto con modelos de coordenadas cartesianas geocéntricas (ECEF), geodésicas y proyectadas.\n\nLa arquitectura diferencia explícitamente elipsoides, sistemas de coordenadas y marcos de referencia, favoreciendo la consistencia de los datos y la trazabilidad de las operaciones."
+        }
+      },
+      {
+        "id": "gnss-processing",
+        "title": {
+          "en": "GNSS processing and geodetic algorithms",
+          "es": "Procesamiento GNSS y algoritmos geodésicos"
+        },
+        "description": {
+          "en": "Development of a specialized engine for GNSS observations, RINEX files, and precise orbit products.\n\nIts architecture supports the progressive integration of baseline processing, FLOAT solution estimation, and integer ambiguity resolution using the LAMBDA algorithm.\n\nGNSS components remain under development and validation, with particular attention to interoperability between stages, observation handling, and evaluation of results using real data.",
+          "es": "Desarrollo de un motor especializado para el tratamiento de observaciones GNSS, archivos RINEX y productos orbitales precisos.\n\nSu arquitectura contempla la integración progresiva de procesamiento de líneas base, estimación de soluciones FLOAT y resolución de ambigüedades enteras mediante el algoritmo LAMBDA.\n\nLos componentes GNSS permanecen en desarrollo y validación, con especial atención a la interoperabilidad entre etapas, el tratamiento de observaciones y la evaluación de resultados con datos reales."
+        }
+      },
+      {
+        "id": "network-adjustment",
+        "title": {
+          "en": "Network adjustment and numerical computing",
+          "es": "Ajuste de redes y computación numérica"
+        },
+        "description": {
+          "en": "Implementation of a three-dimensional geodetic network adjustment engine using weighted least squares.\n\nThe system builds design and weight matrices, solves systems of equations, and calculates residuals and precision indicators for adjusted coordinates.\n\n**Eigen** handles linear algebra operations, while mathematical logic remains decoupled from the graphical interface to support unit testing, numerical validation, and component reuse.",
+          "es": "Implementación de un motor de ajuste tridimensional de redes geodésicas mediante mínimos cuadrados ponderados.\n\nEl sistema construye matrices de diseño y ponderación, resuelve los sistemas de ecuaciones y calcula residuos e indicadores de precisión de las coordenadas ajustadas.\n\nSe utiliza **Eigen** para operaciones de álgebra lineal, manteniendo la lógica matemática desacoplada de la interfaz gráfica para facilitar pruebas unitarias, validación numérica y reutilización de componentes."
+        }
+      }
+    ],
+    "platform": "Windows",
+    "year": 2026,
+    "status": "alpha",
+    "technologies": [
       "cpp",
       "qt",
       "eigen",
-      "cmake",
+      "cmake"
     ],
-
-    domains: [
+    "domains": [
       {
-        en: "Geodesy",
-        es: "Geodesia",
+        "en": "Geodesy",
+        "es": "Geodesia"
       },
       {
-        en: "Surveying",
-        es: "Topografía",
+        "en": "Scientific software",
+        "es": "Software científico"
       },
       {
-        en: "GNSS",
-        es: "GNSS",
-      },
-      {
-        en: "Software",
-        es: "Software",
-      },
+        "en": "GNSS",
+        "es": "GNSS"
+      }
     ],
-
-    roles: ["desktop"],
-
-    featured: true,
-    mediaLayout: "carousel",
-    mediaTitle: {
-      en: "Development showcase",
-      es: "Demostración del desarrollo",
+    "roles": [
+      "desktop"
+    ],
+    "featured": true,
+    "mediaLayout": "carousel",
+    "mediaEyebrow": {
+      "en": "01 / Demonstration",
+      "es": "01 / Demostración"
     },
-    media: [
+    "mediaTitle": {
+      "en": "Orbis Spatial in development",
+      "es": "Orbis Spatial en desarrollo"
+    },
+    "media": [
       {
-        type: "video",
-        src: "/videos/projects/orbis-spatial/development-preview.mp4",
-        poster: "/videos/projects/orbis-spatial/development-preview.jpg",
-        title: {
-          en: "Orbis Spatial development showcase",
-          es: "Demostración de Orbis Spatial",
+        "type": "video",
+        "src": "/videos/projects/orbis-spatial/development-preview.mp4",
+        "poster": "/videos/projects/orbis-spatial/development-preview.jpg",
+        "title": {
+          "en": "Orbis Spatial in development",
+          "es": "Orbis Spatial en desarrollo"
         },
-        description: {
-          en: "A look at the current state of the application. Orbis is in an early alpha stage; workflows and interfaces are evolving, and some capabilities remain under development.",
-          es: "Un recorrido por el estado actual de la aplicación. Orbis se encuentra en una fase alfa temprana: los flujos de trabajo y las interfaces siguen evolucionando, y algunas capacidades aún están en desarrollo.",
-        },
+        "description": {
+          "en": "A demonstration of the current state of the application, including its interfaces, project structures, and geodetic tools.\n\nOrbis is in alpha. Its modules are evolving progressively, and some capabilities are still undergoing implementation, integration, and validation.",
+          "es": "Demostración del estado actual de la aplicación, incluyendo sus interfaces, estructuras de proyectos y herramientas geodésicas.\n\nOrbis se encuentra en fase alfa. Sus módulos evolucionan de manera progresiva y algunas capacidades continúan en implementación, integración y validación."
+        }
       },
+{
+  "type": "image",
+  "src": "/images/projects/orbis-spatial/workspace-1.png",
+  "title": {
+    "es": "Espacio de trabajo inicial",
+    "en": "Initial workspace"
+  }
+},
+{
+  "type": "image",
+  "src": "/images/projects/orbis-spatial/workspace-2.png",
+  "title": {
+    "es": "Estaciones y observaciones RINEX",
+    "en": "Stations and RINEX observations"
+  }
+},
+{
+  "type": "image",
+  "src": "/images/projects/orbis-spatial/workspace-3.png",
+  "title": {
+    "es": "Configuración de referencias geodésicas",
+    "en": "Geodetic reference settings"
+  }
+},
+{
+  "type": "image",
+  "src": "/images/projects/orbis-spatial/workspace-4.png",
+  "title": {
+    "es": "Revisión de referencias y diagnósticos",
+    "en": "Reference review and diagnostics"
+  }
+}
     ],
+    "engineeringHighlight": {
+      "title": {
+        "es": "Ingeniería asistida por IA",
+        "en": "AI-assisted engineering"
+      },
+      "description": {
+        "es": "Desarrollo con LLMs, agentes de programación, skills especializadas y validación automatizada.",
+        "en": "Development with LLMs, coding agents, specialized skills, and automated validation."
+      }
+    }
   },
 
   //GNSS-Reference-Station-Viewer

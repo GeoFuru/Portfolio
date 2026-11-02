@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { publicProjects } from "../utils/projects";
 import type { ProjectSection } from "../types/project";
+import ProjectProse from "../components/ProjectProse";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import TechnologyTag from "../components/TechnologyTag";
@@ -48,6 +49,14 @@ function ProjectPage({ projectId }: ProjectPageProps) {
   const detailSections = project.sections?.filter((section) => section.type !== "overview" && section.type !== "problem") ?? [];
   const features = project.features?.filter((feature) => feature.title[language].trim() && feature.description[language].trim()) ?? [];
   const tocItems = [
+    ...(project.media && project.media.length > 0
+      ? [{
+          id: "project-media",
+          label: project.mediaTitle?.[language]
+            ?? project.media.find((item) => item.title?.[language])?.title?.[language]
+            ?? t.project.media,
+        }]
+      : []),
     ...overviewSections
       .filter((section) => section.title[language].trim() && section.content[language].trim())
       .map((section) => ({ id: `project-section-${section.id}`, label: section.title[language] })),
@@ -57,14 +66,6 @@ function ProjectPage({ projectId }: ProjectPageProps) {
     ...detailSections
       .filter((section) => section.title[language].trim() && section.content[language].trim())
       .map((section) => ({ id: `project-section-${section.id}`, label: section.title[language] })),
-    ...(project.media && project.media.length > 0
-      ? [{
-          id: "project-media",
-          label: project.mediaTitle?.[language]
-            ?? project.media.find((item) => item.title?.[language])?.title?.[language]
-            ?? t.project.media,
-        }]
-      : []),
     ...(demo
       ? [{ id: "project-demo", label: demo.heading?.[language] ?? t.project.demoTitle }]
       : []),
@@ -78,9 +79,7 @@ function ProjectPage({ projectId }: ProjectPageProps) {
           <h2>{section.title[language]}</h2>
         </div>
         <div className="project-prose-block">
-          {section.content[language].split(/\n\s*\n/).map((paragraph, paragraphIndex) => (
-            <p className="project-prose" key={`${section.id}-${paragraphIndex}`}>{paragraph}</p>
-          ))}
+          <ProjectProse text={section.content[language]} />
         </div>
       </section>
     );
@@ -104,15 +103,21 @@ function ProjectPage({ projectId }: ProjectPageProps) {
             <div className="project-profile-content">
             <div className="project-hero-meta">
               <span className="project-status">{t.status[project.status]}</span>
+              {project.statusDetail && <span>{project.statusDetail[language]}</span>}
               <span>{project.year}</span>
-              {project.domains[0] && <span>{project.domains[0][language]}</span>}
+              {(project.statusDetail ? project.domains.slice(0, 2) : project.domains.slice(0, 1)).map((domain) => <span key={domain.en}>{domain[language]}</span>)}
             </div>
             <p className="eyebrow">{t.project.eyebrow}</p>
             <h1>{project.title[language]}</h1>
             {project.subtitle && <p className="project-subtitle">{project.subtitle[language]}</p>}
-            <p className="project-description">{project.description[language]}</p>
+            {project.introduction ? <div className="project-introduction"><ProjectProse text={project.introduction[language]} /></div> : <p className="project-description">{project.description[language]}</p>}
 
             <div className="project-hero-actions">
+              {project.updates !== undefined && (
+                <a href={withBase(`/projects/${project.id}/updates`)} target="_blank" rel="noopener noreferrer" className="project-action" aria-label={language === "es" ? "Actualizaciones (abre en otra pestaña)" : "Updates (opens in a new tab)"}>
+                  {language === "es" ? "Actualizaciones" : "Updates"} <span aria-hidden="true">↗</span>
+                </a>
+              )}
               {project.github && (
                 <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-action project-action-primary">
                   {t.project.repository} <span aria-hidden="true">↗</span>
@@ -133,6 +138,18 @@ function ProjectPage({ projectId }: ProjectPageProps) {
             <div className="project-tech-list" aria-label={t.project.technologies}>
               {project.technologies.map((technology) => <TechnologyTag key={technology} id={technology} />)}
             </div>
+            {project.engineeringHighlight ? (
+              <div className="project-engineering-highlight">
+                <svg className="project-engineering-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M12 4a3 3 0 0 0-5-1 3 3 0 0 0-3 4 4 4 0 0 0-1 7 3 3 0 0 0 4 4 3 3 0 0 0 5 2V4Zm0 3h4l2-3m-6 8h7m-7 5h4l2 3M7 7v3H4m3 4v3m1-5h4" />
+                  <circle cx="19" cy="3" r="1" /><circle cx="20" cy="12" r="1" /><circle cx="19" cy="21" r="1" />
+                </svg>
+                <div>
+                  <h2>{project.engineeringHighlight.title[language]}</h2>
+                  <p>{project.engineeringHighlight.description[language]}</p>
+                </div>
+              </div>
+            ) : project.methodologies && <p className="project-methodologies"><strong>{language === "es" ? "Metodologías" : "Methodologies"}:</strong> {project.methodologies.join(" · ")}</p>}
             </div>
           </div>
 
@@ -146,7 +163,7 @@ function ProjectPage({ projectId }: ProjectPageProps) {
         <div className="project-showcase">
           {project.media && project.mediaLayout === "carousel" ? (
             <div className="project-hero-carousel">
-              <MediaGallery media={project.media} layout="carousel" title={project.mediaTitle?.[language]} sectionId="project-media" />
+              <MediaGallery media={project.media} layout="carousel" title={project.mediaTitle?.[language]} eyebrow={project.mediaEyebrow?.[language]} sectionId="project-media" />
             </div>
           ) : project.image ? (
             <figure className="project-hero-media">
@@ -173,7 +190,7 @@ function ProjectPage({ projectId }: ProjectPageProps) {
                 <article className="project-feature" key={feature.id}>
                   <span className="project-feature-index">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{feature.title[language]}</h3>
-                  <p>{feature.description[language]}</p>
+                  <div><ProjectProse text={feature.description[language]} /></div>
                   {feature.media && <img src={withBase(feature.media.src)} alt={feature.media.description?.[language] ?? feature.media.title?.[language] ?? feature.title[language]} loading="lazy" />}
                 </article>
               ))}
@@ -189,7 +206,7 @@ function ProjectPage({ projectId }: ProjectPageProps) {
         {project.location && <p className="project-location">{t.project.location}: {project.location[language]}</p>}
         {project.coordinates && <ProjectMap coordinates={project.coordinates} title={project.title[language]} />}
         {project.media && project.mediaLayout !== "carousel" && (
-          <MediaGallery media={project.media} layout={project.mediaLayout} title={project.mediaTitle?.[language]} sectionId="project-media" />
+          <MediaGallery media={project.media} layout={project.mediaLayout} title={project.mediaTitle?.[language]} eyebrow={project.mediaEyebrow?.[language]} sectionId="project-media" />
         )}
 
         {demo && (

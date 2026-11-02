@@ -1,3 +1,4 @@
+import ProjectMediaCarousel from "./ProjectMediaCarousel";
 import { useEffect, useState } from "react";
 import type { ProjectMedia, ProjectMediaLayout } from "../types/project";
 import { useLanguage } from "../i18n/useLanguage";
@@ -7,6 +8,7 @@ interface MediaGalleryProps {
   media: ProjectMedia[];
   layout?: ProjectMediaLayout;
   title?: string;
+  eyebrow?: string;
   sectionId?: string;
 }
 
@@ -14,6 +16,7 @@ function MediaGallery({
   media,
   layout = "grid",
   title,
+  eyebrow,
   sectionId,
 }: MediaGalleryProps) {
   const { language, t } = useLanguage();
@@ -63,59 +66,14 @@ function MediaGallery({
   return (
     <>
       <section className="project-detail-section" id={sectionId}>
+        {eyebrow && <p className="eyebrow">{eyebrow}</p>}
         <h2>{title ?? t.project.media}</h2>
 
         {layout === "carousel" ? (
-          <>
-            {activeImage && (
-              <div className="media-carousel" aria-label={title ?? t.project.media}>
-                {images.length > 1 && (
-                  <button className="media-carousel-control" type="button" onClick={showPrevious} aria-label={t.project.previousImage}>
-                    <span aria-hidden="true">←</span>
-                  </button>
-                )}
-                <figure className="media-item media-carousel-item">
-                  <button
-                    type="button"
-                    className="media-item-open"
-                    onClick={() => setLightboxOpen(true)}
-                    aria-label={activeImage.title?.[language] ?? t.project.openImage}
-                  >
-                    <img
-                      src={withBase(activeImage.src)}
-                      alt={activeImage.description?.[language] ?? activeImage.title?.[language] ?? t.project.openImage}
-                      loading="lazy"
-                    />
-                  </button>
-                  {(activeImage.title || activeImage.description) && (
-                    <figcaption>
-                      {activeImage.title && <strong>{activeImage.title[language]}</strong>}
-                      {activeImage.description && <span>{activeImage.description[language]}</span>}
-                    </figcaption>
-                  )}
-                </figure>
-                {images.length > 1 && (
-                  <button className="media-carousel-control" type="button" onClick={showNext} aria-label={t.project.nextImage}>
-                    <span aria-hidden="true">→</span>
-                  </button>
-                )}
-                {images.length > 1 && (
-                  <p className="media-carousel-count" aria-live="polite">{activeIndex + 1} / {images.length}</p>
-                )}
-              </div>
-            )}
-            {media.filter((item) => item.type === "video").map((item) => (
-              <figure key={item.src} className="media-item media-carousel-video">
-                {(item.title || item.description) && (
-                  <figcaption className="media-video-caption">
-                    {item.title && <strong>{item.title[language]}</strong>}
-                    {item.description && <span>{item.description[language]}</span>}
-                  </figcaption>
-                )}
-                <video src={withBase(item.src)} poster={item.poster ? withBase(item.poster) : undefined} controls playsInline preload="metadata" />
-              </figure>
-            ))}
-          </>
+          <ProjectMediaCarousel media={media} title={title ?? t.project.media} onOpenImage={(item) => {
+            setActiveIndex(images.findIndex((image) => image.src === item.src));
+            setLightboxOpen(true);
+          }} />
         ) : (
           <div className="media-gallery">
             {media.map((item) => (

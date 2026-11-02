@@ -1,3 +1,5 @@
+import type { ProjectUpdate } from "./project-update";
+
 export interface LocalizedText {
   en: string;
   es: string;
@@ -69,6 +71,15 @@ export interface Project {
   title: LocalizedText;
   subtitle?: LocalizedText;
   description: LocalizedText;
+  introduction?: LocalizedText;
+  methodologies?: string[];
+  engineeringHighlight?: {
+    title: LocalizedText;
+    description: LocalizedText;
+  };
+  statusDetail?: LocalizedText;
+  /** Set an empty array to enable the updates page before publishing entries. */
+  updates?: ProjectUpdate[];
 
   sections?: ProjectSection[];
   features?: ProjectFeature[];
@@ -77,6 +88,7 @@ export interface Project {
   media?: ProjectMedia[];
   mediaLayout?: ProjectMediaLayout;
   mediaTitle?: LocalizedText;
+  mediaEyebrow?: LocalizedText;
   demo?: ProjectDemo;
 
   year: number;
