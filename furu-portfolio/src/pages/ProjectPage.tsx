@@ -94,8 +94,14 @@ function ProjectPage({ projectId }: ProjectPageProps) {
         <FloatingTableOfContents items={tocItems} />
         <a href={withBase("/projects")} className="back-link">{t.project.back}</a>
 
-        <header className="project-hero">
+        <header className="project-hero project-profile-hero">
           <div className="project-hero-copy">
+            <div className="about-window-bar project-profile-bar" aria-hidden="true">
+              <span className="about-window-lights"><i /><i /><i /></span>
+              <span>GEOFURU://PROJECT</span>
+              <span>{String(projectIndex + 1).padStart(2, "0")}</span>
+            </div>
+            <div className="project-profile-content">
             <div className="project-hero-meta">
               <span className="project-status">{t.status[project.status]}</span>
               <span>{project.year}</span>
@@ -127,8 +133,17 @@ function ProjectPage({ projectId }: ProjectPageProps) {
             <div className="project-tech-list" aria-label={t.project.technologies}>
               {project.technologies.map((technology) => <TechnologyTag key={technology} id={technology} />)}
             </div>
+            </div>
           </div>
 
+          <aside className="about-hero-side project-identity-side" aria-hidden="true">
+            <span className="about-side-label">GEOFURU://PROJECT</span>
+            <span className="about-side-rule" />
+            <span className="about-side-id">GF—{String(projectIndex + 1).padStart(3, "0")}</span>
+          </aside>
+        </header>
+
+        <div className="project-showcase">
           {project.media && project.mediaLayout === "carousel" ? (
             <div className="project-hero-carousel">
               <MediaGallery media={project.media} layout="carousel" title={project.mediaTitle?.[language]} sectionId="project-media" />
@@ -143,7 +158,7 @@ function ProjectPage({ projectId }: ProjectPageProps) {
               <p>{t.project.imagePending}</p>
             </div>
           )}
-        </header>
+        </div>
 
         {overviewSections.map((section, index) => renderSection(section, index + 2))}
 

@@ -16,6 +16,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       href={withBase(`/projects/${project.id}`)}
       className="project-card"
     >
+      <div className="project-window-bar" aria-hidden="true"><span>{project.id.toUpperCase()}</span><span>− □ ×</span></div>
       {videoPreview ? (
         <div className="project-card-image">
           <video

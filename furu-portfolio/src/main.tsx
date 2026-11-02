@@ -8,6 +8,8 @@ import "./styles/geofuru-project-typography-fix.css";
 import "./styles/project-detail.css";
 import "./styles/about-page.css";
 
+import "./styles/redesign.css";
+
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
   <LanguageProvider>

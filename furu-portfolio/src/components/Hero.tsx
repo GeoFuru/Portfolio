@@ -1,83 +1,48 @@
 import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/useLanguage";
+import Terrain from "./Terrain";
 
-const TYPE_SPEED = 55;
-const DELETE_SPEED = 28;
-const PAUSE_AFTER_TYPE = 2200;
-const PAUSE_AFTER_DELETE = 600;
-
-function useTypewriter(text: string) {
-  const [displayed, setDisplayed] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
+/** Original typewriter rhythm, with a longer pause for reading. */
+function TypedTitle({ text }: { text: string }) {
+  const [length, setLength] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches ? text.length : 0);
+  const [reduced, setReduced] = useState(() => window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   useEffect(() => {
-    let timeout: ReturnType<typeof setTimeout>;
-
-    if (!isDeleting && displayed.length < text.length) {
-      timeout = setTimeout(
-        () => setDisplayed(text.slice(0, displayed.length + 1)),
-        TYPE_SPEED,
-      );
-    } else if (!isDeleting && displayed.length === text.length) {
-      timeout = setTimeout(() => setIsDeleting(true), PAUSE_AFTER_TYPE);
-    } else if (isDeleting && displayed.length > 0) {
-      timeout = setTimeout(
-        () => setDisplayed(text.slice(0, displayed.length - 1)),
-        DELETE_SPEED,
-      );
-    } else if (isDeleting && displayed.length === 0) {
-      timeout = setTimeout(() => setIsDeleting(false), PAUSE_AFTER_DELETE);
+    const motion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let count = 0, deleting = false;
+    function tick() {
+      count += deleting ? -1 : 1;
+      setLength(count);
+      let delay = deleting ? 28 : 55;
+      if (count === text.length) { deleting = true; delay = 6000; }
+      else if (count === 0) { deleting = false; delay = 700; }
+      timer = setTimeout(tick, delay);
     }
-
-    return () => clearTimeout(timeout);
-  }, [displayed, isDeleting, text]);
-
-  return displayed;
+    function start() {
+      clearTimeout(timer); setReduced(motion.matches);
+      if (motion.matches) { setLength(text.length); return; }
+      count = 0; deleting = false; setLength(0);
+      timer = setTimeout(tick, 550);
+    }
+    start(); motion.addEventListener("change", start);
+    return () => { clearTimeout(timer); motion.removeEventListener("change", start); };
+  }, [text]);
+  return <><span aria-hidden="true">{text.slice(0,length)}</span><span className="sr-only">{text}</span>{!reduced && <span className="hero-cursor" aria-hidden="true" />}</>;
 }
 
-function Hero() {
-  const { t } = useLanguage();
-  const typedText = useTypewriter(t.hero.titleLine1);
-
-  // Split typed text into two lines at the word boundary
-  const breakIndex = typedText.indexOf(" for");
-  const line1 = breakIndex > 0 ? typedText.slice(0, breakIndex) : typedText;
-  const line2 = breakIndex > 0 ? typedText.slice(breakIndex) : "";
-
+export default function Hero() {
+  const { language, t } = useLanguage();
   return (
     <section className="hero">
+      <Terrain />
       <div className="hero-frame">
-        <div className="home-window-bar" aria-hidden="true">
-          <span className="home-window-lights"><i /><i /><i /></span>
-          <span>GEOFURU://HOME</span>
-          <span>00</span>
-        </div>
-        <p className="hero-name">{t.hero.name}</p>
-
+        <div className="home-window-bar" aria-hidden="true"><span>GEOFURU://HOME</span><span>01 / 2026</span></div>
         <p className="eyebrow">{t.hero.eyebrow}</p>
-
-        <h1 className="hero-statement">
-          <span className="hero-prefix">&gt;</span>{" "}
-          <span className="hero-line1">{line1}</span>
-          {line2 && (
-            <>
-              <br />
-              <span className="hero-line2">{line2.trimStart()}</span>
-            </>
-          )}
-          <span className="hero-cursor" />
-        </h1>
-
-        <p className="hero-description">
-          {t.hero.description}
-        </p>
-
-        <a href="#work" className="primary-button">
-          {t.hero.button}
-        </a>
+        <h1 className="hero-name">{t.hero.name}</h1>
+        <h2 className="hero-statement"><span className="hero-prefix" aria-hidden="true">&gt; </span><TypedTitle key={language} text={t.hero.titleLine1} /></h2>
+        <p className="hero-description">{t.hero.description}</p>
+        <a href="#work" className="primary-button">{t.hero.button}<span aria-hidden="true"> ↘</span></a>
       </div>
     </section>
   );
 }
-
-export default Hero;

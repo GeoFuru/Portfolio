@@ -1,0 +1,39 @@
+/* GeoFuru cursor pack. Relative SVG URLs preserve Vite's deployment base.
+   Scoped specificity keeps the pack effective before Vite's component CSS. */
+@media (hover: hover) and (pointer: fine) {
+  :root {
+    --geofuru-cursor-arrow: url('./neon-outline.svg') 4 2, auto;
+    --geofuru-cursor-target: url('./geodetic-crosshair.svg') 16 16, pointer;
+  }
+  html, body, #root { cursor: var(--geofuru-cursor-arrow); }
+
+  :root :is(a[href], button, [role='button'], summary, select,
+    input[type='button'], input[type='submit'], input[type='reset'],
+    input[type='checkbox'], input[type='radio'], input[type='range'],
+    input[type='file'], input[type='image'], input[type='color'], label[for],
+    .project-card, .gallery-tile) {
+    cursor: var(--geofuru-cursor-target);
+  }
+
+  :root :is(input:not([type]), input[type='text'], input[type='search'],
+    input[type='email'], input[type='password'], input[type='url'],
+    input[type='tel'], input[type='number'], input[type='date'],
+    input[type='datetime-local'], input[type='month'], input[type='time'],
+    input[type='week'], textarea,
+    [contenteditable]:not([contenteditable='false'])) { cursor: text; }
+
+  /* Keep Leaflet navigation native, including drag and measurement modes. */
+  :root :is(.leaflet-grab, .leaflet-grab .leaflet-interactive) { cursor: grab; }
+  :root :is(.leaflet-dragging, .leaflet-dragging .leaflet-grab,
+    .leaflet-dragging .leaflet-grab .leaflet-interactive,
+    .leaflet-dragging .leaflet-marker-draggable) { cursor: grabbing; }
+  :root .leaflet-container.leaflet-crosshair { cursor: crosshair; }
+  :root .leaflet-marker-draggable { cursor: move; }
+
+  :root [data-cursor][data-cursor='default'] { cursor: auto; }
+  :root [data-cursor][data-cursor='target'] { cursor: var(--geofuru-cursor-target); }
+  :root [data-cursor][data-cursor='grab'] { cursor: grab; }
+  :root [data-cursor][data-cursor='grabbing'] { cursor: grabbing; }
+  :root :is(button:disabled, input:disabled, select:disabled, textarea:disabled,
+    [aria-disabled='true']) { cursor: not-allowed; }
+}
